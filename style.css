@@ -1,0 +1,117 @@
+.scene{
+    margin: auto;
+    margin-top: 20vh;
+    width: 150px;
+    height: 150px;
+    perspective: 600px;
+}
+
+.cube{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    /*
+    transform: rotateX(-30deg) rotateY(45deg);
+    animation: rotating 8s infinite linear;*/
+   /* animation: crazy 12s infinite; */
+}
+
+@keyframes rotating {
+    25%{
+        transform: rotateX(-30deg) rotateY(-45deg);
+    }
+    50%{
+        transform: rotateX(-30deg) rotateY(-135deg);
+    }
+    75%{
+        transform: rotateX(-30deg) rotateY(-225deg);
+    }
+    100%{
+        transform: rotateX(-30deg) rotateY(-315deg);
+    }
+}
+
+.cube_face{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+    opacity: 1;
+}
+
+.cube_front{
+    background-color: yellow;
+    transform: rotateY(0deg) translateZ(75px);
+}
+.cube_right{
+    background-color: blue;
+    transform: rotateY(90deg) translateZ(75px);
+}
+.cube_back{
+    background-color: green;
+    transform: rotateY(180deg) translateZ(75px);
+}
+.cube_left{
+    background-color: red;
+    transform: rotateY(-90deg) translateZ(75px);
+}
+.cube_top{
+    background-color: yellowgreen;
+    transform: rotateX(90deg) translateZ(75px);
+}
+.cube_bottom{
+    background-color: paleturquoise;
+    transform: rotateX(-90deg) translateZ(75px);
+}
+
+
+#rotate:checked ~ label > .scene > .cube{
+    transform: rotateX(-30deg) rotateY(45deg);
+    animation: rotating 8s infinite linear;
+}
+#crazy:checked ~ label > .scene > .cube{
+    animation: crazy 12s infinite;
+}
+#crazy:checked ~ label > .scene > .cube > .cube_face{
+    opacity: 0.8;
+}
+#stop:checked ~ label > .scene > .cube{
+    animation-play-state: paused;
+}
+#stop{
+    position: absolute;
+    top: -1000px;
+}
+
+@keyframes crazy {
+    16.6%{
+        transform: rotateX(90deg);
+    }
+    33.2%{
+        transform: rotateX(90deg) rotateZ(90deg);
+    }
+    49.8%{
+        transform: rotateX(90deg) rotateZ(90deg) rotateY(-90deg);
+    }
+    66.4%{
+        transform: rotateX(90deg) rotateZ(180deg) rotateY(-90deg);
+    }
+    83%{
+        transform: rotateX(180deg) rotateZ(180deg) rotateY(-90deg);
+    }
+    99.6%{
+        transform: rotateX(180deg) rotateZ(180deg) rotateY(-180deg);
+    }
+    100%{
+        transform: rotateX(180deg) rotateZ(180deg) rotateY(-180deg);
+    }
+}
+
+h1{
+    margin-top: 50px;
+    text-align: center;
+    font-size: medium;
+    font-family: Impact;
+}
